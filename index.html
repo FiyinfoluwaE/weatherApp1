@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="src/Week2.css"/>
+   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          
+          
+          <div class="container list">
+            <div class="row">
+              <div class="col">
+      <p>
+        <ul class="cities">
+          <li>Miami</li>
+          <li>Abuja</li>
+          <li>Madrid</li>
+          <li>Paris</li>
+        </ul>
+      </p>
+      <h1>Lagos, Nigeria</h1>
+            </div>
+          
+
+              <div class="col">
+      <form class="city" id="searchBar">
+  <div class="mb-3">
+    <input type="text" placeholder="Enter a city" id="searchInput" class="form-control enter shadow-sm border-0" >
+  </div>
+   <button type="submit" class="btn btn-primary submit shadow-sm">Search</button>
+    </form>
+    <button type="button" class="btn btn-outline-success shadow-sm" id="currentCity">Current city</button>
+             </div>
+            </div>
+          </div>
+
+      <h2>Current Weather</h2>
+      <h3>🌤️ <span id="temperature">27</span><span class="temp-signs"><span><a id="celsius" href="#">℃</a></span> | <span><a id="fahrenheit" href="#">℉</a></span>
+      </span></h3>
+      <p class="time">Sunny • <span id="currentTime">Thu,24 8⁚19pm</span></p>
+
+      <div class="container text-center Sunny">
+  <div class="row">
+    <div class="col">
+      <footer id="first">Fri 25</footer>
+        🌤️
+        <br>
+       Sunny
+       <br>
+        27℃
+    </div>
+    <div class="col">
+      <footer id="second">Fri 25</footer>
+        🌤️
+        <br>
+       Sunny
+       <br>
+        27℃
+    
+    </div>
+    <div class="col">
+      <footer id="third">Fri 25</footer>
+        🌤️
+        <br>
+       Sunny
+       <br>
+        27℃
+    </div>
+    <div class="col">
+      <footer id="fourth">Fri 25</footer>
+        🌤️
+        <br>
+       Sunny
+       <br>
+        27℃
+    </div>
+    <div class="col">
+      <footer id="fifth">Fri 25</footer>
+        🌤️
+        <br>
+       Sunny
+       <br>
+        27℃
+    </div>
+  </div>
+</div>
+
+ <div class="position-absolute">
+     <ul class="details">
+      <li id="des">Description: </li>
+      <li id="wind">Wind: </li>
+      <li id="humi">Humidity: </li>
+     </ul>
+   </div>
+ 
+       </div>
+      </div>
+    </div>
+    <script src="src/Week2.js"></script>
+  </body>
+</html>

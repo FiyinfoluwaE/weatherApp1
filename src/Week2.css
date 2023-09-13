@@ -1,0 +1,72 @@
+.cities {
+  list-style: none;
+  padding: 0;
+}
+.cities li {
+  display: inline;
+  margin: 0 3px;
+}
+div.Sunny {
+  max-width: 80%;
+  margin: 30px auto;
+}
+body {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 30px;
+}
+.list {
+  padding: 0;
+}
+.position-absolute {
+  top: 140px;
+  right: 100px;
+}
+.cities,
+h2,
+.Sunny,
+.time,
+.details {
+  color: #5a6275;
+}
+.cities {
+  font-weight: 500;
+  font-size: 16px;
+}
+h1 {
+  font-weight: 800;
+}
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+h3 {
+  font-weight: 800;
+  font-size: 30px;
+}
+.temp-signs {
+  font-size: medium;
+  position: relative;
+  top: -10px;
+  right: -2px;
+}
+a {
+  text-decoration: none;
+}
+.Sunny,
+.time,
+.details {
+  font-size: 15px;
+  font-weight: 700;
+}
+h1,
+h3 {
+  font-family: "Nunito", sans-serif;
+}
+#currentCity {
+  position: absolute;
+  top: 68px;
+  right: 17px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
