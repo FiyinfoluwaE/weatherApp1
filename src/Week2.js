@@ -12,10 +12,7 @@ function second(event) {
 let fah = document.querySelector("#fahrenheit");
 fah.addEventListener("click", second);
 
-function third(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#searchInput");
-  let city = `${cityInput.value}`;
+function third(city) {
   let apiKey = `2857bd67083147845b42e714a671529d`;
   let apiKey1 = `5b45b512306f330fb43aob2122bt1dc0`;
   let unit = `metric`;
@@ -24,8 +21,15 @@ function third(event) {
   axios.get(apiUrl).then(third1);
   axios.get(apiUrl1).then(third4);
 }
+function third5(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#searchInput");
+  let city = `${cityInput.value}`;
+  third(city);
+}
+third("Ikorodu");
 let formInput = document.querySelector("#searchBar");
-formInput.addEventListener("submit", third);
+formInput.addEventListener("submit", third5);
 
 function third1(response) {
   let cityName = `${response.data.name}`;
