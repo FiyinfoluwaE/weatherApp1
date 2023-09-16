@@ -54,8 +54,6 @@ let currentCityButton = document.querySelector("#currentCity");
 currentCityButton.addEventListener("click", coordinate);
 
 function weatherIcon(response) {
-  console.log(response.data.condition.icon_url);
-  let icon1 = `${response.data.condition.icon}`;
   let icon = document.querySelector("#icon");
   icon.setAttribute("src", `${response.data.condition.icon_url}`);
   let description = document.querySelector("#weatherDescription");
