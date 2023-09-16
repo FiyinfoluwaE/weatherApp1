@@ -73,3 +73,7 @@ h3 {
 .time {
   line-height: 5px;
 }
+a.active {
+  color: black;
+  cursor: default;
+}

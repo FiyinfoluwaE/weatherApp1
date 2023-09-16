@@ -7,7 +7,6 @@ function citySearch(city) {
   axios.get(apiUrl).then(weatherInfo);
   axios.get(apiUrl1).then(weatherIcon);
 }
-citySearch("Ikorodu");
 
 function citySearch2(event) {
   event.preventDefault();
@@ -15,13 +14,13 @@ function citySearch2(event) {
   let city = `${cityInput.value}`;
   citySearch(city);
 }
-let formInput = document.querySelector("#searchBar");
-formInput.addEventListener("submit", citySearch2);
 
 function weatherInfo(response) {
   let cityName = `${response.data.name}`;
   let country = `${response.data.sys.country}`;
-  let temperature = Math.round(response.data.main.temp);
+
+  let celsiusTemperature = response.data.main.temp;
+
   let description = `${response.data.weather[0].description}`;
   let windSpeed = `${response.data.wind.speed}`;
   let humidity = `${response.data.main.humidity}`;
@@ -31,7 +30,7 @@ function weatherInfo(response) {
   let wind = document.querySelector("#wind");
   let humi = document.querySelector("#humi");
   h1.innerHTML = `${cityName}, ${country}`;
-  cel.innerHTML = `${temperature}`;
+  cel.innerHTML = `${Math.round(celsiusTemperature)}`;
   des.innerHTML = `Description: ${description}`;
   wind.innerHTML = `Windspeed: ${windSpeed}`;
   humi.innerHTML = `Humidity: ${humidity}`;
@@ -63,6 +62,23 @@ function weatherIcon(response) {
   description.innerHTML = `${response.data.condition.description}`;
 }
 
+function first(event) {
+  event.preventDefault();
+  cel.classList.remove("active");
+  fah.classList.add("active");
+  let fahTemp = document.querySelector("#temperature");
+  fahrenheitTemp = celsiusTemperature * 1.8 + 32;
+  fahTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function second(event) {
+  event.preventDefault();
+  fah.classList.remove("active");
+  cel.classList.add("active");
+  let celTemp = document.querySelector("#temperature");
+  celTemp.innerHTML = Math.round(celsiusTemperature);
+}
+
 function fourth() {
   let current = new Date();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
@@ -87,3 +103,15 @@ function fourth() {
   fifth.innerHTML = `${day} ${date}`;
 }
 fourth();
+
+let celsiusTemperature = null;
+
+let formInput = document.querySelector("#searchBar");
+formInput.addEventListener("submit", citySearch2);
+
+let cel = document.querySelector("#celsius");
+cel.addEventListener("click", second);
+
+let fah = document.querySelector("#fahrenheit");
+fah.addEventListener("click", first);
+citySearch("Ikorodu");
