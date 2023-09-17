@@ -12,23 +12,36 @@ function fourth() {
   currentTime.innerHTML = `${day},${date} ${time}`;
 }
 
-function displayForecast() {
+function formatForecast(timestamp) {
+  let time = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let day = days[time.getDay()];
+  return day;
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-
+  let forecast = response.data.daily;
   let forecastHTML = `<div class="row Sunny">`;
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecasting, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-2">
-      <div id="first">${day}</div>
-        <img src="images/weather_icon1.png" alt="" width="30px">
-
-      <div id= "forecastDescription">Sunny</div>
-       <div id="forecastTemp">27℃</div>
+      <div id="first">${formatForecast(forecasting.time)}</div>
+        <img src="${forecasting.condition.icon_url}" alt="" width="50px">
+      <div class="weatherForecastTemps">
+       <span id="maxForecastTemp">${Math.round(
+         forecasting.temperature.maximum
+       )}℃</span>
+       <span id="minForecastTemp">${Math.round(
+         forecasting.temperature.minimum
+       )}℃</span>
+      </div>
     </div>
     `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -51,6 +64,13 @@ function citySearch2(event) {
   citySearch(city);
 }
 
+function getForecast(cityName) {
+  let apiKey = `5b45b512306f330fb43aob2122bt1dc0`;
+  let unit = `metric`;
+  forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}&units=${unit}`;
+  axios.get(forecastUrl).then(displayForecast);
+}
+
 function weatherInfo(response) {
   let cityName = `${response.data.name}`;
   let country = `${response.data.sys.country}`;
@@ -70,6 +90,7 @@ function weatherInfo(response) {
   des.innerHTML = `Description: ${description}`;
   wind.innerHTML = `Windspeed: ${windSpeed}`;
   humi.innerHTML = `Humidity: ${humidity}`;
+  getForecast(response.data.name);
 }
 
 function currentCoordinate(position) {
@@ -124,5 +145,4 @@ cel.addEventListener("click", second);
 let fah = document.querySelector("#fahrenheit");
 fourth();
 fah.addEventListener("click", first);
-displayForecast();
 citySearch("Ikorodu");

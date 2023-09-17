@@ -7,9 +7,12 @@
   margin: 0 3px;
 }
 .Sunny {
-  max-width: 80%;
-  margin: 30px auto;
+  max-width: 100%;
+  margin: 25px 8px;
   text-align: center;
+}
+hr {
+  margin: 20px 0;
 }
 body {
   margin: 0 auto;
@@ -77,4 +80,7 @@ h3 {
 a.active {
   color: black;
   cursor: default;
+}
+.weatherForecastTemps {
+  font-size: 14px;
 }
