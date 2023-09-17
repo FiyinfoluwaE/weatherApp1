@@ -1,3 +1,39 @@
+function fourth() {
+  let current = new Date();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let day = days[current.getDay()];
+  let date = current.getDate();
+  let time = current.toLocaleString([], {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  let currentTime = document.querySelector("#currentTime");
+  currentTime.innerHTML = `${day},${date} ${time}`;
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row Sunny">`;
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-2">
+      <div id="first">${day}</div>
+        <img src="images/weather_icon1.png" alt="" width="30px">
+
+      <div id= "forecastDescription">Sunny</div>
+       <div id="forecastTemp">27℃</div>
+    </div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function citySearch(city) {
   let apiKey = `2857bd67083147845b42e714a671529d`;
   let apiKey1 = `5b45b512306f330fb43aob2122bt1dc0`;
@@ -77,31 +113,6 @@ function second(event) {
   celTemp.innerHTML = Math.round(celsiusTemperature);
 }
 
-function fourth() {
-  let current = new Date();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
-  let day = days[current.getDay()];
-  let date = current.getDate();
-  let time = current.toLocaleString([], {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  let currentTime = document.querySelector("#currentTime");
-  currentTime.innerHTML = `${day},${date} ${time}`;
-  let first = document.querySelector("#first");
-  first.innerHTML = `${day} ${date}`;
-  let second = document.querySelector("#second");
-  second.innerHTML = `${day} ${date}`;
-  let third = document.querySelector("#third");
-  third.innerHTML = `${day} ${date}`;
-  let fourth = document.querySelector("#fourth");
-  fourth.innerHTML = `${day} ${date}`;
-  let fifth = document.querySelector("#fifth");
-  fifth.innerHTML = `${day} ${date}`;
-}
-fourth();
-
 let celsiusTemperature = null;
 
 let formInput = document.querySelector("#searchBar");
@@ -111,5 +122,7 @@ let cel = document.querySelector("#celsius");
 cel.addEventListener("click", second);
 
 let fah = document.querySelector("#fahrenheit");
+fourth();
 fah.addEventListener("click", first);
+displayForecast();
 citySearch("Ikorodu");

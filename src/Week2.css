@@ -6,9 +6,10 @@
   display: inline;
   margin: 0 3px;
 }
-div.Sunny {
+.Sunny {
   max-width: 80%;
   margin: 30px auto;
+  text-align: center;
 }
 body {
   margin: 0 auto;
