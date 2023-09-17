@@ -13,6 +13,7 @@
 }
 hr {
   margin: 20px 0;
+  opacity: 0.035;
 }
 body {
   margin: 0 auto;
@@ -24,7 +25,7 @@ body {
 }
 .position-absolute {
   top: 140px;
-  right: 100px;
+  right: 70px;
 }
 .cities,
 h2,
@@ -68,11 +69,8 @@ h3 {
   font-family: "Nunito", sans-serif;
 }
 #currentCity {
-  position: absolute;
-  top: 68px;
-  right: 17px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 47px;
+  padding-right: 47px;
 }
 .time {
   line-height: 5px;
