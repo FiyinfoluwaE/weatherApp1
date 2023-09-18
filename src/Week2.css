@@ -82,3 +82,6 @@ a.active {
 .weatherForecastTemps {
   font-size: 14px;
 }
+#minForecastTemp {
+  opacity: 0.6;
+}
